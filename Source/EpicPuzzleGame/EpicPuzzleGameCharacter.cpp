@@ -104,7 +104,7 @@ void AEpicPuzzleGameCharacter::MoveForward(float Value)
 	if ((Controller != nullptr) && (Value != 0.0f))
 	{
 		// find out which way is forward
-		const FRotator Rotation = Controller->GetControlRotation();
+		const FRotator Rotation = FollowCamera->GetComponentRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 
 		// get forward vector
@@ -118,7 +118,7 @@ void AEpicPuzzleGameCharacter::MoveRight(float Value)
 	if ( (Controller != nullptr) && (Value != 0.0f) )
 	{
 		// find out which way is right
-		const FRotator Rotation = Controller->GetControlRotation();
+		const FRotator Rotation = FollowCamera->GetComponentRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 	
 		// get right vector 
