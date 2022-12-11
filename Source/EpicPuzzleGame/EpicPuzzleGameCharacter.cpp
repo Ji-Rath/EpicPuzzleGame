@@ -6,6 +6,7 @@
 #include "Components/InputComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
+#include "GameFramework/PlayerController.h"
 #include "GameFramework/SpringArmComponent.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -104,7 +105,7 @@ void AEpicPuzzleGameCharacter::MoveForward(float Value)
 	if ((Controller != nullptr) && (Value != 0.0f))
 	{
 		// find out which way is forward
-		const FRotator Rotation = FollowCamera->GetComponentRotation();
+		const FRotator Rotation = GetController<APlayerController>()->PlayerCameraManager->GetCameraRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 
 		// get forward vector
@@ -118,7 +119,7 @@ void AEpicPuzzleGameCharacter::MoveRight(float Value)
 	if ( (Controller != nullptr) && (Value != 0.0f) )
 	{
 		// find out which way is right
-		const FRotator Rotation = FollowCamera->GetComponentRotation();
+		const FRotator Rotation = GetController<APlayerController>()->PlayerCameraManager->GetCameraRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 	
 		// get right vector 
